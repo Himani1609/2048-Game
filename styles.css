@@ -1,0 +1,225 @@
+/* Home Page Styling */
+.home-container {
+    text-align: center;
+    margin-top: 50px;
+    
+}
+
+h1.home-title {
+    font-size: 3rem;
+    color: #776e65;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+p.home-description {
+    font-size: 1.5rem;
+    color: #776e65;
+    margin-bottom: 40px;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+button.home-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #f67c5f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    transition: background-color 0.3s ease;
+}
+
+button.home-button:hover {
+    background-color: #f65e3b;
+}
+
+
+.fade-out {
+    animation: fadeOut 3s ease forwards; 
+}
+
+.fade-in{
+    animation: fadeIn 3s ease forwards;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* game page styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #faf8ef;
+}
+
+h1 {
+    /* margin: 10px;
+    color: #776e65;
+    font-size: 40px;
+    text-shadow: 1px 1px #eee; */
+    margin: 10px 0;
+    color: #776e65;
+    font-size: 40px;
+    text-shadow: 1px 1px #eee;
+    text-align: center; 
+}
+
+
+.score-board {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #776e65;
+    text-align: center; 
+} 
+
+
+/* Game Grid Container */
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Game Grid */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+    background: #bbada0;
+    padding: 10px;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+/* Individual tiles */
+.tile {
+    width: 100px;
+    height: 100px;
+    background: #cdc1b4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    border-radius: 5px;
+    color: #776e65;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+
+.tile[data-value="2"] { background: #eee4da; }
+.tile[data-value="4"] { background: #ede0c8; }
+.tile[data-value="8"] { background: #f2b179; color: #f9f6f2; }
+.tile[data-value="16"] { background: #f59563; color: #f9f6f2; }
+.tile[data-value="32"] { background: #f67c5f; color: #f9f6f2; }
+.tile[data-value="64"] { background: #f65e3b; color: #f9f6f2; }
+.tile[data-value="128"] { background: #edcf72; color: #f9f6f2; }
+.tile[data-value="256"] { background: #edcc61; color: #f9f6f2; }
+.tile[data-value="512"] { background: #edc850; color: #f9f6f2; }
+.tile[data-value="1024"] { background: #edc53f; color: #f9f6f2; }
+.tile[data-value="2048"] { background: #edc22e; color: #f9f6f2; }
+
+
+/* Game-over Overlay */
+#game-over-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #eee4da;
+    color: #ff4757;
+    font-size: 48px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 3s ease, transform 3s ease-in-out;
+}
+
+#game-over-overlay.show {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+#game-grid.fade-out {
+    animation: fadeOut 3s forwards;
+}
+
+/* Animation */
+@keyframes fadeOut {
+from {
+    opacity: 1;
+}
+to {
+    opacity: 0;
+}
+}
+
+#restart-button {
+    background-color: #ff4757;
+    border: none;
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#restart-button:hover {
+background-color: #e84118;
+transform: scale(1.1);
+}
+
+
+#restart-button:active {
+transform: scale(1);
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to 2048</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="home-container" id="home-page">
+        <h1 class="home-title">Welcome to 2048</h1>
+        <p class="home-description">
+            Slide, combine, and reach 2048 in this addictive puzzle game! Test your logic and strategy to win.
+        </p>
+        <button class="home-button">Play Now</button>
+    </div>
+
+    <script>
+        var homePage = document.getElementById("home-page");
+        var button = document.querySelector(".home-button");
+
+        button.onclick = startGame;
+
+        function startGame() {
+
+            homePage.classList.add("fade-out");
+            homePage.addEventListener("animationend", function () {
+                window.location.href = "game.html";
+            }, { once: true });
+        }
+    </script>
+</body>
+</html>
